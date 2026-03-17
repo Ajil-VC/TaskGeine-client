@@ -1,0 +1,12 @@
+<div class="app-shell">
+    <app-header (toggleSidebar)="isSidebarOpen = !isSidebarOpen"></app-header>
+
+    <div class="app-layout">
+        <app-sidebar [isOpen]="isSidebarOpen" (closeSidebar)="isSidebarOpen = false">
+        </app-sidebar>
+
+        <main class="app-main">
+            <router-outlet></router-outlet>
+        </main>
+    </div>
+</div>

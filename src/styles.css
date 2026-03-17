@@ -1,1 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root {
+    --dark-blue: #020617;
+    --mid-blue: rgba(15, 23, 42, 0.95);
+    --light-blue: rgba(148, 163, 184, 0.3);
+    --orange: #f97316;
+
+    --app-bg: #ffffff;
+    --surface: #ffffff;
+    --text: #0f172a;
+    --muted-text: #64748b;
+
+    --header-height: 64px;
+    --sidebar-width: 260px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    background: var(--app-bg);
+    color: var(--text);
+}

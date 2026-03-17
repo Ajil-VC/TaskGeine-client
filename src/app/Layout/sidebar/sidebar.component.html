@@ -1,0 +1,36 @@
+<aside class="sidebar" [class.sidebar--open]="isOpen">
+    <button class="sidebar-close-btn" type="button" (click)="closeSidebar.emit()">
+        ✕
+    </button>
+
+    <div class="sidebar-top">
+        <div class="sidebar-profile">
+            <div class="sidebar-avatar" aria-hidden="true">AJ</div>
+            <div class="sidebar-profile-text">
+                <div class="sidebar-profile-name">Ajil</div>
+                <div class="sidebar-profile-email">ajilexample.com</div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="sidebar-nav">
+        <a routerLink="/dashboard" routerLinkActive="sidebar-link--active" class="sidebar-link">
+            <span class="sidebar-link-label">Dashboard</span>
+        </a>
+        <a routerLink="/create-plan" routerLinkActive="sidebar-link--active" class="sidebar-link">
+            <span class="sidebar-link-label">Create Plan</span>
+        </a>
+        <a routerLink="/my-plans" routerLinkActive="sidebar-link--active" class="sidebar-link">
+            <span class="sidebar-link-label">My Plans</span>
+        </a>
+        <a routerLink="/today" routerLinkActive="sidebar-link--active" class="sidebar-link">
+            <span class="sidebar-link-label">Today</span>
+        </a>
+        <a routerLink="/completed" routerLinkActive="sidebar-link--active" class="sidebar-link">
+            <span class="sidebar-link-label">Completed</span>
+        </a>
+        <a routerLink="/settings" routerLinkActive="sidebar-link--active" class="sidebar-link">
+            <span class="sidebar-link-label">Settings</span>
+        </a>
+    </nav>
+</aside>
