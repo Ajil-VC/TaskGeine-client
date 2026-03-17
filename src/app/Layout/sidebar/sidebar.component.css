@@ -48,7 +48,7 @@
     height: 40px;
     border-radius: 999px;
     background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(148, 163, 184, 0.35);
+    border: 1px solid var(--orange);
     display: flex;
     align-items: center;
     justify-content: center;

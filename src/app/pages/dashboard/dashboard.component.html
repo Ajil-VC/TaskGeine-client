@@ -1,0 +1,64 @@
+<section class="dash">
+  <header class="dash-header">
+    <div>
+      <h1 class="dash-title">Dashboard</h1>
+      <p class="dash-subtitle">Your plans, today’s focus, and what’s coming next.</p>
+    </div>
+  </header>
+
+  <div class="dash-grid">
+    <article class="card">
+      <div class="card-head">
+        <h2 class="card-title">Progress overview</h2>
+        <div class="pill">{{ progressPercent }}%</div>
+      </div>
+
+      <div class="progress">
+        <div class="progress-bar" [style.width.%]="progressPercent"></div>
+      </div>
+
+      <div class="progress-meta">
+        <span><strong>{{ doneCount }}</strong> done</span>
+        <span class="muted">out of {{ totalCount }} tasks</span>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <h2 class="card-title">Today’s tasks</h2>
+        <div class="muted">{{ todayTasks.length }} items</div>
+      </div>
+
+      <ul class="task-list">
+        <li class="task" *ngFor="let t of todayTasks">
+          <div class="task-main">
+            <div class="task-title">{{ t.title }}</div>
+            <div class="task-meta">
+              <span class="tag" [attr.data-status]="t.status">{{ t.status.replace('_', ' ') }}</span>
+              <span class="muted">~{{ t.etaMinutes }} min</span>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </article>
+
+    <article class="card card--span">
+      <div class="card-head">
+        <h2 class="card-title">Upcoming tasks</h2>
+        <div class="muted">{{ upcomingTasks.length }} items</div>
+      </div>
+
+      <ul class="task-list task-list--two">
+        <li class="task" *ngFor="let t of upcomingTasks">
+          <div class="task-main">
+            <div class="task-title">{{ t.title }}</div>
+            <div class="task-meta">
+              <span class="tag" [attr.data-status]="t.status">{{ t.status.replace('_', ' ') }}</span>
+              <span class="muted">~{{ t.etaMinutes }} min</span>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </article>
+  </div>
+</section>

@@ -2,9 +2,10 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    /* background: var(--dark-blue); */
-    color: var(--light-blue);
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: var(--app-bg);
+    color: var(--text);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
 }
 
 /* content area under header */
@@ -20,16 +21,15 @@
     flex: 1;
     padding: 1rem;
     overflow-y: auto;
-    background: white;
+    background: var(--surface);
+    width: 100%;
 }
 
 /* desktop: sidebar on the left, content on the right */
 @media (min-width: 768px) {
-    .app-layout {
-        flex-direction: row;
-    }
-
     .app-main {
+        margin-left: var(--sidebar-width);
+        width: calc(100% - var(--sidebar-width));
         padding: 1.5rem 2rem;
     }
 }
