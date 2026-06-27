@@ -1,0 +1,38 @@
+.header-title {
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: white;
+}
+
+.header-title.white {
+    color: white;
+}
+
+.header-title.dark-blue {
+    color: var(--dark-blue);
+}
+
+.header-title .genie {
+    color: var(--orange);
+    font-family: cursive;
+    font-weight: lighter;
+}
+
+.header-title.small {
+    font-size: 1rem;
+}
+
+.header-title.medium {
+    font-size: 1.1rem;
+}
+
+.header-title.large {
+    font-size: 1.2rem;
+}
+
+
+@media (min-width: 768px) {
+    .header-title {
+        font-size: 1.1rem;
+    }
+}

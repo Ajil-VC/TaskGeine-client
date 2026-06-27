@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Plan } from '../../core/plan';
+import { Plan } from '../../core/models/plan';
+import { MainService } from '../../core/services/main.service';
 
 @Component({
   selector: 'app-create-plan',
@@ -10,9 +11,12 @@ import { Plan } from '../../core/plan';
   styleUrl: './create-plan.component.css',
 })
 export class CreatePlanComponent {
+
+  mainService = inject(MainService);
+
   query = '';
   plan: Plan | null = null;
-  isCreating = false;
+  isCreating: boolean = false;
 
   createPlan(): void {
     const trimmed = this.query.trim();

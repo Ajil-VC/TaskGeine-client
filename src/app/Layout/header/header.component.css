@@ -17,18 +17,7 @@
     gap: 0.75rem;
 }
 
-.header-title {
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    font-size: 1.1rem;
-    color: white;
-}
 
-.header-title .genie {
-    color: var(--orange);
-    font-family: cursive;
-    font-weight: lighter;
-}
 
 .header-menu-btn {
     display: inline-flex;
@@ -58,7 +47,4 @@
         display: none;
     }
 
-    .header-title {
-        font-size: 1.1rem;
-    }
 }

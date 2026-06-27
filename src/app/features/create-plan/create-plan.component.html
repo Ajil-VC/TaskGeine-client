@@ -14,15 +14,9 @@
 
       <form class="create-form" (ngSubmit)="createPlan()">
         <label class="create-label" for="plan-query">What do you want to accomplish?</label>
-        <textarea
-          id="plan-query"
-          class="create-input"
-          name="query"
-          rows="4"
-          placeholder="e.g. Build a landing page for TaskGenie in 3 days…"
-          [(ngModel)]="query"
-          [disabled]="isCreating"
-        ></textarea>
+        <textarea id="plan-query" class="create-input" name="query" rows="4"
+          placeholder="e.g. Learn Angular fundamentals in 3 days..." [(ngModel)]="query"
+          [disabled]="isCreating"></textarea>
 
         <button class="create-btn" type="submit" [disabled]="!query.trim() || isCreating">
           {{ isCreating ? 'Creating plan…' : 'Create plan' }}
