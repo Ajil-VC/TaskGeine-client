@@ -83,6 +83,27 @@ export class CreatePlanComponent {
             },
           ],
         },
+        {
+          day: 2,
+          date: new Date(Date.now() + 86400000).toISOString().slice(0, 10),
+          totalEstimatedTime: 90,
+          tasks: [
+            {
+              title: 'Execute first chunk',
+              estimatedTime: 60,
+              type: 'execution',
+              priority: 'high',
+              isCompleted: false,
+            },
+            {
+              title: 'Review and adjust plan',
+              estimatedTime: 30,
+              type: 'review',
+              priority: 'low',
+              isCompleted: false,
+            },
+          ],
+        },
       ],
     };
   }
