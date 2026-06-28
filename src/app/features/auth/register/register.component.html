@@ -1,0 +1,50 @@
+<section class="auth">
+
+  <app-logo size="large"></app-logo>
+
+  <article class="auth-card">
+    <header class="auth-header">
+      <h1 class="auth-title">Create account</h1>
+      <p class="auth-subtitle">Join TaskGenie and start breaking big goals into doable steps.</p>
+    </header>
+
+    <form class="auth-form" (ngSubmit)="register()">
+      <div class="auth-field">
+        <label class="auth-label" for="register-name">Full name</label>
+        <input id="register-name" class="auth-input" type="text" name="name" autocomplete="name" placeholder="Your name"
+          [(ngModel)]="name" [disabled]="isSubmitting" required />
+      </div>
+
+      <div class="auth-field">
+        <label class="auth-label" for="register-email">Email</label>
+        <input id="register-email" class="auth-input" type="email" name="email" autocomplete="email"
+          placeholder="you@example.com" [(ngModel)]="email" [disabled]="isSubmitting" required />
+      </div>
+
+      <div class="auth-field">
+        <label class="auth-label" for="register-password">Password</label>
+        <input id="register-password" class="auth-input" type="password" name="password" autocomplete="new-password"
+          placeholder="Create a password" [(ngModel)]="password" [disabled]="isSubmitting" required />
+      </div>
+
+      <div class="auth-field">
+        <label class="auth-label" for="register-confirm-password">Confirm password</label>
+        <input id="register-confirm-password" class="auth-input" type="password" name="confirmPassword"
+          autocomplete="new-password" placeholder="Repeat your password" [(ngModel)]="confirmPassword"
+          [disabled]="isSubmitting" required />
+        <p class="auth-error" *ngIf="confirmPassword && !passwordsMatch">
+          Passwords do not match.
+        </p>
+      </div>
+
+      <button class="auth-btn" type="submit" [disabled]="!canSubmit">
+        {{ isSubmitting ? 'Creating account…' : 'Create account' }}
+      </button>
+    </form>
+
+  </article>
+  <p class="auth-footer">
+    Already have an account?
+    <a routerLink="/login" class="auth-link">Sign in</a>
+  </p>
+</section>

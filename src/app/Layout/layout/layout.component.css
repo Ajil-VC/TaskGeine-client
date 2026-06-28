@@ -1,35 +1,89 @@
 .app-shell {
+    height: 100vh;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     background: var(--app-bg);
     color: var(--text);
     font-family: var(--font-sans);
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
-/* content area under header */
 .app-layout {
     display: flex;
     flex-direction: column;
     flex: 1;
+    min-height: 0;
     overflow: hidden;
 }
 
-/* main content */
+.page-header {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    height: var(--page-header-height);
+    z-index: 15;
+    display: flex;
+    align-items: center;
+    background: var(--surface);
+    padding: 0 var(--content-padding-x);
+}
+
+.page-header .page-width-control {
+    width: 100%;
+}
+
 .app-main {
     flex: 1;
-    padding: 1rem;
+    min-height: 0;
+    margin-top: var(--header-height);
+    padding-top: var(--page-header-height);
+    padding-left: var(--content-padding-x);
+    padding-right: var(--content-padding-x);
+    padding-bottom: var(--content-padding-y);
     overflow-y: auto;
     background: var(--surface);
     width: 100%;
 }
 
-/* desktop: sidebar on the left, content on the right */
+.page-header-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.page-title {
+    font-size: 20px;
+    letter-spacing: 0.01em;
+    line-height: 1.2;
+}
+
+.page-subtitle {
+    margin-top: 4px;
+    color: var(--muted-text);
+    font-size: 13px;
+    line-height: 1.2;
+}
+
 @media (min-width: 768px) {
+    :root {
+        --content-padding-x: 32px;
+        --content-padding-y: 24px;
+    }
+
+    .page-header {
+        left: var(--sidebar-width);
+        width: calc(100% - var(--sidebar-width));
+    }
+
     .app-main {
         margin-left: var(--sidebar-width);
         width: calc(100% - var(--sidebar-width));
-        padding: 1.5rem 2rem;
+    }
+
+    .dash-title {
+        font-size: 24px;
     }
 }

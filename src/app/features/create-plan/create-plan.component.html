@@ -1,0 +1,64 @@
+<section class="page-width-control">
+
+
+  <div class="dash-grid">
+    <article class="card card--span">
+      <div class="card-head">
+        <h2 class="card-title">Your task</h2>
+      </div>
+
+      <form class="create-form" (ngSubmit)="createPlan()">
+        <label class="create-label" for="plan-query">What do you want to accomplish?</label>
+        <textarea id="plan-query" class="create-input" name="query" rows="4"
+          placeholder="e.g. Learn Angular fundamentals in 3 days..." [(ngModel)]="query"
+          [disabled]="isCreating"></textarea>
+
+        <button class="create-btn" type="submit" [disabled]="!query.trim() || isCreating">
+          {{ isCreating ? 'Creating plan…' : 'Create plan' }}
+        </button>
+      </form>
+    </article>
+
+    <article class="card card--span" *ngIf="plan; else emptyPlan">
+      <div class="card-head">
+        <h2 class="card-title">{{ plan.planTitle }}</h2>
+        <div class="plan-pills">
+          <span class="pill">{{ plan.totalDays }} days</span>
+          <span class="pill pill--muted">~{{ plan.estimatedHoursPerDay }}h / day</span>
+        </div>
+      </div>
+
+      <div class="plan-days">
+        <section class="day-block" *ngFor="let day of plan.days">
+          <div class="day-head">
+            <h3 class="day-title">Day {{ day.day }}</h3>
+            <span class="muted">{{ day.date }}</span>
+            <span class="pill pill--small">~{{ day.totalEstimatedTime }} min</span>
+          </div>
+
+          <ul class="task-list">
+            <li class="task" *ngFor="let task of day.tasks">
+              <div class="task-main">
+                <div class="task-title">{{ task.title }}</div>
+                <div class="task-meta">
+                  <span class="tag" [attr.data-priority]="task.priority">{{ task.priority }}</span>
+                  <span class="tag tag--type">{{ task.type }}</span>
+                  <span class="muted">~{{ task.estimatedTime }} min</span>
+                  <span class="tag" [class.tag--done]="task.isCompleted">
+                    {{ task.isCompleted ? 'done' : 'pending' }}
+                  </span>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </article>
+
+    <ng-template #emptyPlan>
+      <article class="card card--span plan-empty">
+        <p class="muted">Your generated plan will appear here after you create one.</p>
+      </article>
+    </ng-template>
+  </div>
+</section>
