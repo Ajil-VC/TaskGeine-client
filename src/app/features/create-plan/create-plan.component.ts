@@ -3,6 +3,8 @@ import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Plan } from '../../core/models/plan';
 import { MainService } from '../../core/services/main.service';
+import { LayoutService } from '../../core/services/layout/layout.service';
+import { PAGES } from '../../core/models/page_signal';
 
 @Component({
   selector: 'app-create-plan',
@@ -13,7 +15,11 @@ import { MainService } from '../../core/services/main.service';
 export class CreatePlanComponent {
 
   mainService = inject(MainService);
+  layoutService = inject(LayoutService);
 
+  ngOnInit() {
+    this.layoutService.pageSignal.set({ title: PAGES.CreatePlan.title, subtitle: PAGES.CreatePlan.subtitle });
+  }
   query = '';
   plan: Plan | null = null;
   isCreating: boolean = false;

@@ -14,29 +14,11 @@
     </div>
 
     <nav class="sidebar-nav">
-        <a routerLink="/dashboard" routerLinkActive="sidebar-link--active" class="sidebar-link"
-            (click)="closeSidebar.emit()">
-            <span class="sidebar-link-label">Dashboard</span>
+
+        <a *ngFor="let item of menuItems" [routerLink]="item.route" routerLinkActive="sidebar-link--active"
+            class="sidebar-link" (click)="closeSidebarAndHandlePageTitle()">
+            <span class="sidebar-link-label">{{item.page.title}}</span>
         </a>
-        <a routerLink="/create-plan" routerLinkActive="sidebar-link--active" class="sidebar-link"
-            (click)="closeSidebar.emit()">
-            <span class="sidebar-link-label">Create Plan</span>
-        </a>
-        <a routerLink="/my-plans" routerLinkActive="sidebar-link--active" class="sidebar-link"
-            (click)="closeSidebar.emit()">
-            <span class="sidebar-link-label">My Plans</span>
-        </a>
-        <a routerLink="/today" routerLinkActive="sidebar-link--active" class="sidebar-link"
-            (click)="closeSidebar.emit()">
-            <span class="sidebar-link-label">Today</span>
-        </a>
-        <a routerLink="/completed" routerLinkActive="sidebar-link--active" class="sidebar-link"
-            (click)="closeSidebar.emit()">
-            <span class="sidebar-link-label">Completed</span>
-        </a>
-        <a routerLink="/settings" routerLinkActive="sidebar-link--active" class="sidebar-link"
-            (click)="closeSidebar.emit()">
-            <span class="sidebar-link-label">Settings</span>
-        </a>
+
     </nav>
 </aside>

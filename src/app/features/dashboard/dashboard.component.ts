@@ -1,5 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { LayoutService } from '../../core/services/layout/layout.service';
+import { PAGES } from '../../core/models/page_signal';
 
 type TaskStatus = 'todo' | 'in_progress' | 'done';
 
@@ -17,6 +19,12 @@ interface TaskItem {
   styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent {
+
+  layoutService = inject(LayoutService);
+  ngOnInit() {
+    this.layoutService.pageSignal.set({ title: PAGES.Dashboard.title, subtitle: PAGES.Dashboard.subtitle })
+  }
+
   readonly todayTasks: TaskItem[] = [
     { id: 't1', title: 'Break “Landing page” into chunks', etaMinutes: 35, status: 'in_progress' },
     { id: 't2', title: 'Implement sidebar routes', etaMinutes: 20, status: 'todo' },
