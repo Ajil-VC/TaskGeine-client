@@ -20,7 +20,7 @@
           placeholder="Enter your password" [(ngModel)]="password" [disabled]="isSubmitting" required />
       </div>
 
-      <button class="auth-btn" type="submit" [disabled]="!email.trim() || !password.trim() || isSubmitting">
+      <button class="btn" type="submit" [disabled]="!email.trim() || !password.trim() || isSubmitting">
         {{ isSubmitting ? 'Signing in…' : 'Sign in' }}
       </button>
     </form>
