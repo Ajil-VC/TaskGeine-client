@@ -6,6 +6,7 @@ import { LogoComponent } from '../../../shared/components/logo/logo.component';
 import { AuthService } from '../../../core/services/auth/auth.service';
 import { Dialog } from '@angular/cdk/dialog';
 import { ModalComponent } from '../../../shared/components/modal/modal.component';
+import { switchMap } from 'rxjs';
 
 
 @Component({
@@ -70,11 +71,17 @@ export class RegisterComponent {
 
     this.isSubmitting = true;
 
-    this.openModal();
-    // this.authService.register(this.name, this.email, this.password)
-    //   .pipe(
-    //     switchMap(() => this.openModal())
-    //   )
+    this.authService.register(this.name, this.email, this.password)
+      .pipe(
+        switchMap(() => this.openModal())
+      ).subscribe({
+        next: (res) => {
+
+        },
+        error: (err) => {
+
+        }
+      })
   }
 
 

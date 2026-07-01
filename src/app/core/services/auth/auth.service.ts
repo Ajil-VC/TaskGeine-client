@@ -12,7 +12,7 @@ export class AuthService {
 
   http = inject(HttpClient);
 
-  register(name: string, email: string, password: string): Observable<ResponseShape<User>> {
-    return this.http.post<ResponseShape<User>>(environment.apiUrl, { name, email, password })
+  register(userName: string, email: string, passWord: string): Observable<ResponseShape<User>> {
+    return this.http.post<ResponseShape<User>>(`${environment.apiUrl}register`, { userName, email, passWord })
   }
 }
